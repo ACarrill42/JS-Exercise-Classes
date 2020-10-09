@@ -80,9 +80,27 @@ console.log(Name);
 */
 
 class Car {
+  constructor() {
+  this.tank = 0;
+  this.odometer = 0;
+  this.milesPerGallon = milesPerGallon;
+  }
 
+fill(gallons) {
+  this.tank += gallons;
 }
-
+drive(distance) {
+  while (distance != 0 && this.tank > 0) {
+    this.odometer += 1;
+    this.tank -= 1 / this.milesPerGallon;
+    distance --;
+  }
+  this.tank = Math.round(this.tank);
+  if (distance > 0 ) {
+    return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
+};
 /*
   TASK 3
     - Write a Lambdasian class.
