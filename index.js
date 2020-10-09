@@ -189,9 +189,21 @@ console.log(Austin,Austin.listSubjects(),Austin.prAssignments(),Austin.sprintCha
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+  constructor(classes) {
+    super(Teach)
+    this.gradClassName = classes.gradClassName;
+    this.favInstructor = classes.favInstructor;
+  }
+  standUp() {
+    return `${this.favInstructor} announces to ${this.gradClassName}, @channel, study times!`;
+  }
+  debugCodes() {
+    return `${this.favInstructor} debugs ${this.name}'s code on ${this.subject}'`
+  }
 }
+const Nathan = new ProjectManager({gradClassName: 'WEBPT 15', favInstructor: 'Sean'})
+console.log(Nathan,Nathan.standUp(),Nathan.debugCodes());
 
 /*
   STRETCH PROBLEM (no tests!)
